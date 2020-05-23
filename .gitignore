@@ -1,4 +1,5 @@
 uoe-logo/logo/*.jpg
+uoe-logo/logo/*.pdf
 *.aux
 *.log
 auto
