@@ -1,0 +1,64 @@
+%% Copyright (C) 2016 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1.3c of the License, or (at your opinion) any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+%%
+%%   SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
+\ProvidesFile{uoe.lco}[%
+  2019/03/16 v1.0 Letter layout for uoe-letter.]
+
+% type-setting the subject line 
+\setkomafont{subject}{\normalcolor\bfseries}
+
+% type-setting URLs
+\hypersetup{pdfborder=0 0 0}
+\renewcommand{\UrlFont}{\bfseries}
+\renewcommand{\familydefault}{\sfdefault}%
+%\raggedright
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% new variables 
+\newkomavar{area}
+\newkomavar{college}
+\newkomavar[Blog:]{fromblog}
+
+
+\providecaptionname{american,australian,british,canadian,%
+  english,newzealand,UKenglish,USenglish}\phonename{Telephone}%
+
+% Define first head 
+% \@setplength{firstheadhpos}{0mm}
+\newlength{\logowidth}
+\setlength{\logowidth}{45mm}
+%\@setplength{locwidth}{70mm}
+\@setplength{locvpos}{12mm}
+\@setplength{firstheadvpos}{12mm}
+%\@setplength{firstheadwidth}{\logowidth}
+%\@addtoplength[-1]{firstheadvpos}{14pt}
+
+\setkomavar{firsthead}{%
+  \uoeLogoLight[width=\logowidth]%
+}
+
+% Define loc stuff (e.g., back address) 
+\@setplength{lochpos}{0mm}
+\@setplength{locwidth}{75mm}
+\@addtoplength{locheight}{165pt}
+
+\setkomavar{location}{\raggedright%
+  \ifkomavarempty{area}{}{{\large\usekomavar{area}\\\bigskip}}%
+  %
+  \ifkomavarempty{college}{}{{\usekomavar{college}\\}}%
+  \usekomavar{fromaddress}\\\bigskip
+  \ifkomavarempty{fromphone}{}{t~\usekomavar{fromphone}\\}%
+  \ifkomavarempty{fromfax}{}{f~\usekomavar{fromfax}\\}%
+  \ifkomavarempty{fromemail}{}{e~\usekomavar{fromemail}\\}%
+  \ifkomavarempty{fromblog}{}{b~\usekomavar{fromblog}\\}%
+  \ifkomavarempty{fromurl}{}{w~\usekomavar{fromurl}\\}%
+}
+
