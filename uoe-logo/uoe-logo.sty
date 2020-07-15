@@ -1,0 +1,26 @@
+%% Copyright (C) 2019 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1.3c of the License, or (at your opinion) any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+%%
+%%   SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uoe-logo}
+   [2019/03/16 v1.0 The University of Exeter Logo.]
+\RequirePackage{graphicx}
+\RequirePackage{ifthen}
+
+\ProcessOptions\relax
+
+\newcommand{\uoeLogoMono}[1][with=6cm]{\includegraphics[#1]{logo/mono_logo_vector}}
+\newcommand{\uoeLogoLight}[1][width=6cm]{\includegraphics[#1]{logo/colour_logo_vector}}
+\newcommand{\uoeLogoDark}[1][width=6cm]{\includegraphics[#1]{logo/white_logo_vector}}
+\newcommand{\uoeCrestMono}[1][width=6cm]{\includegraphics[#1]{logo/mono_crest_vector}}
+\newcommand{\uueCrestColour}[1][width=6cm]{\includegraphics[#1]{logo/colour_crest_vector}}
+
+\endinput
